@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Task } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-task',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
   title: string;
-  @Input() task: any;
+  @Input() task: Task;
 
   @Output() onPinTask: EventEmitter<any> = new EventEmitter();
   @Output() onArchiveTask: EventEmitter<any> = new EventEmitter();
@@ -15,6 +16,14 @@ export class TaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onArchive(taskId: string) {
+    this.onArchiveTask.emit(taskId);
+  }
+
+  onPin(taskId: string) {
+    this.onPinTask.emit(taskId);
   }
 
 }
