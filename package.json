@@ -91,7 +91,8 @@
         "diagnostics": false,
         "isolatedModules": true,
         "astTransformers": [
-          "<rootDir>/node_modules/jest-preset-angular/InlineHtmlStripStylesTransformer"
+          "jest-preset-angular/build/InlineFilesTransformer",
+          "jest-preset-angular/build/StripStylesTransformer"
         ]
       }
     },
