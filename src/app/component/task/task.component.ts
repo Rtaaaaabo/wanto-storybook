@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
+  title: string;
+  @Input() task: any;
+
+  @Output() onPinTask: EventEmitter<any> = new EventEmitter();
+  @Output() onArchiveTask: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
